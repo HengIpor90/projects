@@ -9,7 +9,6 @@ async def register(request: Request, user: UserRegister):
     result, error = await register_user_logic(db, user)
     
     if error:
-        # បើមាន Error (User ស្ទួន) ឱ្យបោះលេខ 400 ទៅ Flutter
         raise HTTPException(status_code=400, detail=error)
         
     return {"message": "User registered successfully"}
